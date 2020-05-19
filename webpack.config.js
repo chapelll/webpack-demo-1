@@ -1,28 +1,21 @@
 var path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const base = require("./webpack.config.base.js")
+
 module.exports = {
-    mode: 'development',
+    ...base,
     devtool: 'inline-source-map',
     devServer: {
         contentBase: './dist',
     },
-    entry: './src/index.js',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'index.[contenthash].js'
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            title: '配置中的title',
-            template: 'src/assets/index.html'
-        })
-    ],
     module: {
         rules: [
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
+                //开发的时候使用 loader 速度快，css不会抽离，直接写在html中
             }
         ]
     }
