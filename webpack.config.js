@@ -3,6 +3,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist',
+    },
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -16,11 +20,11 @@ module.exports = {
     ],
     module: {
         rules: [
-          {
-            test: /\.css$/,
-            use: [ 'style-loader', 'css-loader' ]
-          }
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
         ]
-      }
+    }
 };
 
