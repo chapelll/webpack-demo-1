@@ -8,7 +8,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: '配置中的title',
+            title: "webpack的练习",
             template: 'src/assets/index.html'
         })
     ],
